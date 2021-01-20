@@ -15,7 +15,7 @@ TODO
 3. Select the map directory where every workshop map you downloaded are
 4. Select the map you want to inject
 5. Inject
-6. Go in Free Play and select `Pillars - Footcar`
+6. Go in Free Play and select the `Pillars - Footcar` map
 7. If you want to restore the original map, just click the restore button
 
 ## Download
