@@ -7,7 +7,7 @@ Before using this application you will need to download a few things  :
 - **Workshop maps** - Go to https://steamworkshopdownloader.io/. Copy the map link you want to play (*ex : https://steamcommunity.com/sharedfiles/filedetails/?id=964271505*) and download it.
 
 ## How does it work ?
-As the Rocket League on Epic Games doesn't implement the workshop yet.
+TODO
 
 ## How to use
 1. Launch the `.exe` file
