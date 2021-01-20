@@ -1,5 +1,5 @@
 # RocketLeagueMapInjector
-As Rocket League on Epic Games doesn't implement the workshop yet, this simple application will allow you to inject and play workshop maps (coming from Steam) into the Epic Games version.
+As Rocket League on Epic Games Launcher doesn't implement the workshop yet, this simple application will allow you to inject and play workshop maps (coming from Steam) into the Epic Games version.
 
 ## Prerequisites
 Before using this application you will need a few things to download :
