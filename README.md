@@ -2,7 +2,7 @@
 As Rocket League on Epic Games Launcher doesn't implement the workshop yet, this simple application will allow you to inject and play workshop maps (coming from Steam) into the Epic Games version.
 
 ## Prerequisites
-Before using this application you will need a few things to download :
+Before using this application you will need to download a few things  :
 - **Java** - At least JDK 15 : https://www.oracle.com/fr/java/technologies/javase-downloads.html.
 - **Workshop maps** - Go to https://steamworkshopdownloader.io/. Copy the map link you want to play (*ex : https://steamcommunity.com/sharedfiles/filedetails/?id=964271505*) and download it.
 
