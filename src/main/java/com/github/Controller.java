@@ -1,4 +1,4 @@
-package org.example;
+package com.github;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
@@ -44,7 +44,7 @@ public class Controller implements Initializable {
         String os = System.getProperty("os.name").toLowerCase();
 
         if(os.indexOf("win") >= 0) {
-            if (isRocketLeagueOpened()) {
+            if (!isRocketLeagueOpened()) {
                 return;
             }
 
@@ -91,13 +91,15 @@ public class Controller implements Initializable {
             Process p = Runtime.getRuntime().exec(System.getenv("windir") +"\\system32\\"+"tasklist.exe /fo csv /nh");
             BufferedReader input = new BufferedReader(new InputStreamReader(p.getInputStream()));
             while ((line = input.readLine()) != null) {
-                if (line.split(",")[0].equals("\"RocketLeague.exe\"")) return false;
+                if (line.split(",")[0].equals("\"RocketLeague.exe\"")) {
+                    return true;
+                }
             }
             input.close();
         } catch (Exception err) {
             err.printStackTrace();
         }
-        return true;
+        return false;
     }
 
     public void linkToRocketLeague(String path) {
@@ -122,7 +124,7 @@ public class Controller implements Initializable {
     }
 
     //TODO : Ability to save the path to workshop map
-    public void rocketLeagueDirectoryChooser() throws IOException {
+    public void rocketLeagueDirectoryChooser() {
         DirectoryChooser dc = new DirectoryChooser();
         File f = dc.showDialog(null);
 
@@ -131,7 +133,7 @@ public class Controller implements Initializable {
         }
 
         // Clear the listView
-        listView.getItems().clear();
+        this.listView.getItems().clear();
         try {
             // Find workshop maps into the folder : it is recursive : 10 directories max
             List<Path> paths = Files.find(f.toPath(), 10, (filePath, fileAttr) -> fileAttr.isRegularFile()).filter(path -> path.toAbsolutePath().toString().endsWith(".upk") || path.toAbsolutePath().toString().endsWith(".udk")).collect(Collectors.toList());
@@ -142,7 +144,7 @@ public class Controller implements Initializable {
                 // Add file paths to the listView
                 paths.forEach(p -> {
                     File file = new File(p.toString());
-                    listView.getItems().add(file.getAbsoluteFile());
+                    this.listView.getItems().add(file.getAbsoluteFile());
                 });
             }
         } catch (Exception e) {
@@ -151,28 +153,28 @@ public class Controller implements Initializable {
     }
 
     public void injectMap(ActionEvent actionEvent) throws IOException {
-        if (rocketLeaguePathPrefix.isEmpty() && !isRocketLeagueOpened()) {
+        if (this.rocketLeaguePathPrefix.isEmpty() && !isRocketLeagueOpened()) {
             this.error.setContentText("Link to Rocket League before injecting a map !");
             this.error.showAndWait();
             return;
-        } else if (listView.getSelectionModel().getSelectedItem() == null){
+        } else if (this.listView.getSelectionModel().getSelectedItem() == null){
             this.error.setContentText("Select a map before injecting !");
             this.error.showAndWait();
             return;
         }
 
         // If there is already a .old file in the directory
-        if (isAlreadyInjected(moddedMapPath)) {
+        if (isAlreadyInjected(this.moddedMapPath)) {
             // Restore the original map first
             reverseMap(actionEvent);
         }
 
         // Rename the file into xxx.upk.old
         File originalFile = new File(originalMapPath);
-        if (originalFile.exists()) originalFile.renameTo(new File(moddedMapPath));
+        if (originalFile.exists()) originalFile.renameTo(new File(this.moddedMapPath));
 
         // Copy the workshop map into the game folder
-        Files.copy(listView.getSelectionModel().getSelectedItem().toPath(), originalFile.toPath().toAbsolutePath(), StandardCopyOption.COPY_ATTRIBUTES);
+        Files.copy(this.listView.getSelectionModel().getSelectedItem().toPath(), originalFile.toPath().toAbsolutePath(), StandardCopyOption.COPY_ATTRIBUTES);
 
         this.info.setContentText("Successfully injected !");
         this.info.showAndWait();
@@ -195,11 +197,11 @@ public class Controller implements Initializable {
             return;
         }
 
-        File workshopMapFile = new File(originalMapPath);
-        File originalMapFile = new File(moddedMapPath);
+        File workshopMapFile = new File(this.originalMapPath);
+        File originalMapFile = new File(this.moddedMapPath);
 
         if (workshopMapFile.exists()) Files.delete(workshopMapFile.toPath());
-        originalMapFile.renameTo(new File(originalMapPath));
+        originalMapFile.renameTo(new File(this.originalMapPath));
 
 
         if (idButton.equals("reverseMapButton")) {
