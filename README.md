@@ -1,5 +1,8 @@
-# RocketLeagueMapInjector
-[![Download](https://img.shields.io/static/v1?label=Download&message=v0.1&color=informational)](https://github.com/fbourdenet/RocketLeagueMapInjector/releases/tag/v0.1)
+
+# RocketLeagueMapInjector <img align="right" width="150" height="150" src="./images/icons/rocketleagueicon.ico">
+
+[![Download](https://img.shields.io/static/v1?label=Download&message=v0.1&color=informational)](https://github.com/fbourdenet/RocketLeagueMapInjector/releases/tag/v0.1) 
+
 
 As Rocket League on Epic Games Launcher doesn't implement the workshop yet, this simple application will allow you to play Workshop maps (coming from Steam) into the Epic Games version.
 
