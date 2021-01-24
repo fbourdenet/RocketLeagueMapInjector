@@ -187,7 +187,7 @@ public class Controller implements Initializable {
     public void reverseMap(ActionEvent actionEvent) throws IOException {
         String idButton = ((Button) actionEvent.getSource()).getId();
 
-        if (isRocketLeagueOpened()) {
+        if (!isRocketLeagueOpened()) {
             this.error.setContentText("Need to link to Rocket League first !");
             this.error.showAndWait();
             return;

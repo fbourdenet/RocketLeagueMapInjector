@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.Controller">
+   <children>
+      <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" spacing="10.0">
+         <VBox.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </VBox.margin>
+         <Button id="linkToRocketLeague" maxHeight="30.0" maxWidth="140.0" minHeight="30.0" minWidth="140.0" mnemonicParsing="false" onAction="#initializeApp" prefHeight="30.0" prefWidth="140.0" text="Link to Rocket League">
+            <HBox.margin>
+               <Insets />
+            </HBox.margin>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Button id="rocketLeagueFileChooser" maxHeight="30.0" maxWidth="140.0" minHeight="30.0" minWidth="140.0" mnemonicParsing="false" onAction="#rocketLeagueDirectoryChooser" prefHeight="30.0" prefWidth="140.0" text="Choose map directory">
+            <HBox.margin>
+               <Insets />
+            </HBox.margin>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+      </HBox>
+      <ListView fx:id="listView" maxHeight="140.0" maxWidth="600.0" minHeight="140.0" minWidth="600.0" prefHeight="140.0" prefWidth="600.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ListView>
+      <HBox alignment="BOTTOM_CENTER" spacing="10.0">
+         <VBox.margin>
+            <Insets top="15.0" />
+         </VBox.margin>
+         <Button id="injectMapButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#injectMap" text="Inject" textAlignment="CENTER">
+            <HBox.margin>
+               <Insets />
+            </HBox.margin>
+            <padding>
+               <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+            </padding>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Button id="reverseMapButton" mnemonicParsing="false" onAction="#reverseMap" text="Restore" textAlignment="CENTER">
+            <padding>
+               <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+            </padding>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+      </HBox>
+      <HBox alignment="BOTTOM_RIGHT" prefHeight="0.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="linkRocketLeagueLabel" alignment="BOTTOM_LEFT" contentDisplay="CENTER" text="Not linked !" textAlignment="CENTER" textFill="RED">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>

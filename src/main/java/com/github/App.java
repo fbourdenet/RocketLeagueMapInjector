@@ -18,6 +18,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("primary"));
+        scene.getStylesheets().add(App.class.getResource("css/style.css").toExternalForm());
         stage.setScene(scene);
         stage.setTitle("Rocket League Workshop Map Injector v0.1");
         stage.setResizable(false);
@@ -29,7 +30,7 @@ public class App extends Application {
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("design/" + fxml + ".fxml"));
         return fxmlLoader.load();
     }
 
